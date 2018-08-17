@@ -1,0 +1,44 @@
+version: "3"
+services:
+  header:
+    build: ./header
+    environment:
+      HOST: http://localhost:3001
+    ports: 
+      - 3001:3000
+
+  footer:
+    build: ./footer
+    environment:
+      HOST: http://localhost:3002
+    ports:
+      - 3002:3000
+
+  home:
+    build: ./home
+    environment:
+      HOST: http://localhost:3003
+    ports:
+      - 3003:3000
+
+  food:
+    build: ./food
+    environment:
+      HOST: http://localhost:3004
+    ports:
+      - 3004:3000
+
+  app:
+    build: ./app
+    depends_on:
+      - header
+      - footer
+      - home
+      - food
+    environment:
+      HEADER_HOST: http://header:3000
+      FOOTER_HOST: http://footer:3000
+      HOME_HOST: http://home:3000
+      FOOD_HOST: http://food:3000
+    ports:
+      - 3000:3000

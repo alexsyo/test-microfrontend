@@ -1,0 +1,17 @@
+{
+  "name": "microfrontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ROOT_NODE=footer node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production ROOT_NODE=footer node server.js"
+  },
+  "dependencies": {
+    "micro": "^9.3.3",
+    "next": "alexsyo/next.js#canary",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
+}
