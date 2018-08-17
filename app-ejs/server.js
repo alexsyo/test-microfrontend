@@ -11,13 +11,15 @@ server.get('/*', (req, res) =>
     getContents(process.env.HEADER_HOST),
     getContents(process.env.FOOTER_HOST),
     getContents(process.env.HOME_HOST + req.path),
-    getContents(process.env.FOOD_HOST + req.path)
+    getContents(process.env.FOOD_HOST + req.path),
+    getContents(process.env.GAMES_HOST + req.path)
   ]).then(responses =>
     res.render('index', {
        header: responses[0].data,
        footer: responses[1].data,
        home: responses[2].data,
-       food: responses[3].data
+       food: responses[3].data,
+       games: responses[4].data
     })
   ).catch(error =>
     res.send(error.message)

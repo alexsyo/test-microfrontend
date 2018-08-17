@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Microfrontend</title>
+</head>
+<body style="margin:0;font-family: sans-serif;">
+  <fragment src="http://header:3000"></fragment>
+  <div style="display:flex">
+    <div style="flex-grow:1">
+      <fragment src="http://food:3000"></fragment>
+    </div>
+    <div style="flex-grow:1">
+        <fragment src="http://games:3000" primary></fragment>
+    </div>
+  </div>
+  <fragment src="http://footer:3000"></fragment>
+</body>
+</html>
